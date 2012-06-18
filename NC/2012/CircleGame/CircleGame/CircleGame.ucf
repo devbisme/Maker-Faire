@@ -1,0 +1,77 @@
+#---------------------------------------------------------------------
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
+# 02111-1307, USA.
+#
+# ©2012 - X Engineering Software Systems Corp. (www.xess.com)
+#---------------------------------------------------------------------
+
+net clk_i           loc=p43;  # 12 MHz clock input.
+
+##############################
+# Buttons (PM4).
+##############################
+net resetButton_i  loc=p32;
+net playButton_i   loc=p20;
+
+##############################
+# Rotary encoders.
+##############################
+net sizeA_i         loc=p33;
+net sizeB_i         loc=p19;
+
+##############################
+# Audio Codec (WING3).
+##############################
+net mclk_o          loc=p73;  
+net sclk_o          loc=p72;  
+net lrck_o          loc=p94;  
+net sdti_o          loc=p83;  
+net sdto_i          loc=p84;  
+net csn_o           loc=p3;   
+net cclk_o          loc=p4;   
+
+##############################
+# LEDs.
+##############################
+net ledCircle_o<0> loc=p62;
+net ledCircle_o<1> loc=p61;
+net ledCircle_o<2> loc=p57;
+net ledCircle_o<3> loc=p56;
+net ledCircle_o<4> loc=p52;
+net ledCircle_o<5> loc=p50;
+net ledCircle_o<6> loc=p37;
+net ledCircle_o<7> loc=p36;
+net ledCircle_o<8> loc=p44;
+net ledCircle_o<9> loc=p35;
+net arrowLed_o     loc=p34;
+
+
+##############################
+# I/O Drive
+##############################
+NET clk_i          IOSTANDARD = LVTTL;
+net mclk_o         IOSTANDARD = LVTTL;
+net sclk_o         IOSTANDARD = LVTTL;
+net lrck_o         IOSTANDARD = LVTTL;
+net sdti_o         IOSTANDARD = LVTTL;
+net sdto_i         IOSTANDARD = LVTTL;
+net csn_o          IOSTANDARD = LVTTL;
+net cclk_o         IOSTANDARD = LVTTL;
+net ledCircle_o*   IOSTANDARD = LVTTL | DRIVE = 24;
+net arrowLed_o     IOSTANDARD = LVTTL | DRIVE = 24;
+net resetButton_i  IOSTANDARD = LVCMOS33 | PULLUP;
+net playButton_i   IOSTANDARD = LVCMOS33 | PULLUP;
+net sizeA_i        IOSTANDARD = LVCMOS33 | PULLUP;
+net sizeB_i        IOSTANDARD = LVCMOS33 | PULLUP;
