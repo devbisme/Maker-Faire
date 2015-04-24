@@ -17,61 +17,70 @@
 # ©2012 - X Engineering Software Systems Corp. (www.xess.com)
 #---------------------------------------------------------------------
 
-net clk_i           loc=p43;  # 12 MHz clock input.
+#
+# Colors refer to wires connecting LEDs, buttons and rotary encoders to
+# the FPGA. First color is the background color of the wire;
+# second color is the color of the stripe on the wire.
+#
+
+# Ground is Black-Gray.
+# +5V is Yellow-Orange.
+
+net clk_i          loc =p43; # 12 MHz clock input.
 
 ##############################
 # Buttons (PM4).
 ##############################
-net resetButton_i  loc=p32;
-net playButton_i   loc=p20;
+net resetButton_i  loc =p32;
+net playButton_i   loc =p20; # White-Orange 
 
 ##############################
 # Rotary encoders.
 ##############################
-net sizeA_i         loc=p33;
-net sizeB_i         loc=p19;
+net sizeA_i        loc =p33; # White-Blue
+net sizeB_i        loc =p19; # White-Brown
 
 ##############################
 # Audio Codec (WING3).
 ##############################
-net mclk_o          loc=p73;  
-net sclk_o          loc=p72;  
-net lrck_o          loc=p94;  
-net sdti_o          loc=p83;  
-net sdto_i          loc=p84;  
-net csn_o           loc=p3;   
-net cclk_o          loc=p4;   
+net mclk_o         loc =p73;
+net sclk_o         loc =p72; 
+net lrck_o         loc =p94; 
+net sdti_o         loc =p83; 
+net sdto_i         loc =p84; 
+net csn_o          loc =p3; 
+net cclk_o         loc =p4; 
 
 ##############################
 # LEDs.
 ##############################
-net ledCircle_o<0> loc=p62;
-net ledCircle_o<1> loc=p61;
-net ledCircle_o<2> loc=p57;
-net ledCircle_o<3> loc=p56;
-net ledCircle_o<4> loc=p52;
-net ledCircle_o<5> loc=p50;
-net ledCircle_o<6> loc=p37;
-net ledCircle_o<7> loc=p36;
-net ledCircle_o<8> loc=p44;
-net ledCircle_o<9> loc=p35;
-net arrowLed_o     loc=p34;
+net ledCircle_o<0> loc =p62; # Gray-Yellow
+net ledCircle_o<1> loc =p61; # Yellow-Gray
+net ledCircle_o<2> loc =p57; # Brown-Yellow
+net ledCircle_o<3> loc =p56; # Blue-Purple
+net ledCircle_o<4> loc =p52; # Purple-Blue
+net ledCircle_o<5> loc =p50; # Red-Orange
+net ledCircle_o<6> loc =p37; # Orange-Red
+net ledCircle_o<7> loc =p36; # Green-White
+net ledCircle_o<8> loc =p44; # White-Green
+net ledCircle_o<9> loc =p35; # Black-Blue
+net arrowLed_o     loc =p34; # Red-Gray
 
 
 ##############################
-# I/O Drive
+#   I/O Drive
 ##############################
-NET clk_i          IOSTANDARD = LVTTL;
-net mclk_o         IOSTANDARD = LVTTL;
-net sclk_o         IOSTANDARD = LVTTL;
-net lrck_o         IOSTANDARD = LVTTL;
-net sdti_o         IOSTANDARD = LVTTL;
-net sdto_i         IOSTANDARD = LVTTL;
-net csn_o          IOSTANDARD = LVTTL;
-net cclk_o         IOSTANDARD = LVTTL;
-net ledCircle_o*   IOSTANDARD = LVTTL | DRIVE = 24;
-net arrowLed_o     IOSTANDARD = LVTTL | DRIVE = 24;
-net resetButton_i  IOSTANDARD = LVCMOS33 | PULLUP;
-net playButton_i   IOSTANDARD = LVCMOS33 | PULLUP;
-net sizeA_i        IOSTANDARD = LVCMOS33 | PULLUP;
-net sizeB_i        IOSTANDARD = LVCMOS33 | PULLUP;
+NET clk_i IOSTANDARD         = LVTTL;
+net mclk_o IOSTANDARD        = LVTTL;
+net sclk_o IOSTANDARD        = LVTTL;
+net lrck_o IOSTANDARD        = LVTTL;
+net sdti_o IOSTANDARD        = LVTTL;
+net sdto_i IOSTANDARD        = LVTTL;
+net csn_o IOSTANDARD         = LVTTL;
+net cclk_o IOSTANDARD        = LVTTL;
+net ledCircle_o* IOSTANDARD  = LVTTL | DRIVE = 24;
+net arrowLed_o IOSTANDARD    = LVTTL | DRIVE = 24;
+net resetButton_i IOSTANDARD = LVCMOS33 | PULLUP;
+net playButton_i IOSTANDARD  = LVCMOS33 | PULLUP;
+net sizeA_i IOSTANDARD       = LVCMOS33 | PULLUP;
+net sizeB_i IOSTANDARD       = LVCMOS33 | PULLUP;
